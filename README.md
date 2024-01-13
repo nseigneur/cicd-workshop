@@ -2,14 +2,17 @@
 > Spot issues quickly, save time and be thrifty
 
 ## Table of Contents 📑
-- Introduction
-- Depencencies
-- Workshop Goals
-- Running the Application
-- Useful Commands
-- References
+- [CI/CD WorkShop](#cicd-workshop)
+  - [Table of Contents 📑](#table-of-contents-)
+  - [Introduction 📝](#introduction-)
+  - [Dependencies 📦](#dependencies-)
+  - [Getting Started 🚀](#getting-started-)
+  - [Workshop Goals 🎯](#workshop-goals-)
+  - [Running the Application](#running-the-application)
+  - [Other useful commands 🛠](#other-useful-commands-)
+  - [References 📚](#references-)
 
-##Introduction 📝
+## Introduction 📝
 
 This workshop is designed to help you understand the importance of CI/CD and how to implement it in your project. We will be using [GitHub Actions]() to automate our CI/CD pipeline. 
 We will also be using [AWS S3]() to host our application.Below you will find a list of dependencies and tools you will need to complete this workshop.
