@@ -1,21 +1,35 @@
-# GitHub Actions Workshop by GitHub
+# CI/CD WorkShop 
+> Spot issues quickly, save time and be thrifty
 
-> *Lift-off with GitHub Actions - it's not rocket-science (unless you use it for rockets).* 🚀
+## Table of Contents 📑
+- Introduction
+- Depencencies
+- Workshop Goals
+- Running the Application
+- Useful Commands
+- References
 
-Welcome to our GitHub Actions Workshop! It will teach you all the basics of GitHub Actions and beyond, so that you feel confident in automating your own workflows and deployments.
+##Introduction 📝
 
-Our goal is to make GitHub Actions as easy to you as floating in space!
+This workshop is designed to help you understand the importance of CI/CD and how to implement it in your project. We will be using [GitHub Actions]() to automate our CI/CD pipeline. 
+We will also be using [AWS S3]() to host our application.Below you will find a list of dependencies and tools you will need to complete this workshop.
 
-![GitHubs Octocat Mascot in a space suite floating above earth](docs/images/octonaut.jpg)
+We have provided a baseline CI for building and deploying the application, we invite you to choose one primary workshop goal and complete it. If you have time, you can complete the other goals as well.
 
 Following this workshop, you will create a set of GitHub Action workflows in order to **test, release, secure** and **deploy** the **Rocketdex** 🚀 - an awesome React-Application that lets you view and collect all your favorite rockets!
 
 You will learn how to
 
-- run your **first GitHub Action**
+- run your **GitHub Actions**
 - use [**the Marketplace**](https://github.com/marketplace)
 - create a complete and secure **CI pipeline** from scratch
-- deploy your application to [Microsoft Azure](https://azure.com/) (or another Cloud Provider of your choice)
+
+## Dependencies 📦
+- [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+- [git](https://git-scm.com/)
+- [GitHub Account](https://github.com)
+- [AWS S3 Credentials](https://vault.indigolabs.ca/)
 
 ## Getting Started 🚀
 
@@ -30,19 +44,17 @@ Anything you need for this workshop is contained within this template-repository
 
 ![Image of Repository Creation Screen with settings as explained above](docs/images/setup_create-repo.png)
 
-In your own repository, you now can safely create and change all files and run actions workflows according to the instructions shared by your trainer or by following our [self-serve documents](#workshop-parts-) below.
+You can now choose your [workshop goal](#workshop-goals-) below.
 
-## Workshop Parts 📚
+## Workshop Goals 🎯
 
-These are the self-serve documents you can follow to complete this workshop. If you are doing this with a trainer, these are your reference materials:
+These are the self-serve documents you can follow to complete this workshop.
 
-1. **[Hello World - Run your first Action](./docs/001-hello-world.md)**
-2. **[Basics of Continous Integration - Build & Test](./docs/002-basics-of-ci-with-actions.md)**
-3. **[Package and release your Application](./docs/003-packaging.md)**
-4. **[Security with Actions](./docs/004-security.md)**
-5. **[Lift-off - Deployment with Actions](./docs/005-deployment.md)**
+1. **[Code Quality & Commit management](./docs/code_quality.md)**
+2. **[QA & Test Coverage](./docs/qa_tests.md)**
+3. **[Security](./docs/security.md)**
 
-## Rocketdex  Application Setup
+## Running the Application 
 
 The **Rocketdex** application is a [React](https://reactjs.org/)-Application build with [vite](https://vitejs.dev/) and tested with [vitest](https://vitest.dev/).
 
@@ -58,7 +70,7 @@ After that, you can start it in development mode to have a look at it:
 npm run dev
 ```
 
-### Other useful commands
+## Other useful commands 🛠
 
 | Description                                               | Command         |
 | --------------------------------------------------------- | --------------- |
@@ -66,10 +78,6 @@ npm run dev
 | Run Unit Tests with [vitest](https://vitest.dev/)         | `npm run test`  |
 | Lint the Code with [ESLint](https://eslint.org/)          | `npm run lint`  |
 
-## Contributions
-
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
-
-## Licensing
-
-This repo is licensed under MIT for code and CC BY-SA 4.0 for documentation (`docs/` folder and the `README.md.`). See the [LICENSE](./LICENSE) File for more information.
+## References 📚
+- [Reference Workshop](https://github.com/actions-workshop/actions-workshopp)
+- [ESLint Conventions](https://typescript-eslint.io/rules/naming-convention/)
