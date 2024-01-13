@@ -18,7 +18,11 @@ To test the container, run `docker build . -t local:latest` to build the image a
 
 ## 2 - Implement Continuous Integration (CI)
 
-### 2.1 - Use a starter workflow
+### 2.1 - Set the AWS Secret Keys
+
+1. TODO: Add a link to the AWS Secret Keys
+
+### 2.2 - Use a starter workflow
 
 To build a workflow that employs Actions for your Continuous Integration process, start by adding a **starter workflow** to your repository:
 
@@ -65,7 +69,7 @@ jobs:
 
 </details>
 
-### 2.2 - Understanding references to actions
+### 2.3 - Understanding references to actions
 
 As you can see, we're now employing a second action in our workflow, `actions/setup-node`, which is used to install a specific Node.js version on the runner.
 

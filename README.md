@@ -47,7 +47,7 @@ Anything you need for this workshop is contained within this template-repository
 
 ![Image of Repository Creation Screen with settings as explained above](docs/images/setup_create-repo.png)
 
-You can now choose your [workshop goal](#workshop-goals-) below.
+Now, you can start working on the [basics of your CI/CD pipeline](./docs/basics.md) once completed, you can choose your [workshop goal](#workshop-goals-) below.
 
 ## Workshop Goals 🎯
 
