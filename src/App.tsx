@@ -11,7 +11,7 @@ import { MockOctocats } from "./api/types/MockOctocats";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const MODE = import.meta.env.MODE;
-const API_URL = import.meta.env.API_URL ?? "https://octocatapi.com";
+const API_URL = import.meta.env.API_URL ?? "http://workshop.indigolabs.ca.s3-website-us-east-1.amazonaws.com/";
 
 const queryClient = new QueryClient();
 
