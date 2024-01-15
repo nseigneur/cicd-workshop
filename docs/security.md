@@ -1,14 +1,10 @@
-# Part 4 - Security
-
-In the previous lab, you packaged your application and are now almost ready for deployment. But first, we need to ensure we don't introduce any security risks to our production infrastructure with our changes.
-
-After all, NASA wouldn't launch a rocket without ensuring its safety, right?
+# Security
 
 Security is an integral part of software development. Too much is at stake; it cannot merely be an afterthought in what you do. Instead, it needs to be tightly integrated into your software development lifecycle!
 
 We must spot and fix vulnerabilities as soon as possible, and for this, **automation** plays a significant role. Hence, enter the security stage: GitHub Actions!
 
-In this lab, you will leverage GitHub Actions to enhance security through automation by creating two new workflows:
+You will leverage GitHub Actions to enhance security through automation by creating two new workflows:
 
 1. **Supply-chain security**: You will use the [dependency review action](https://github.com/actions/dependency-review-action) to ensure you're not introducing vulnerable dependencies in your pull requests. This is crucial since, on average, 80% of the code in your project comes from third-party libraries. We need to ensure they are secure before using them!
 
@@ -333,9 +329,3 @@ In this lab, you learned how to:
 
 > **Note**
 > What you learned in this lab is just the beginning of how GitHub Advanced Security can assist you in making your code secure. To delve deeper, feel free to read through the [Addendum - GitHub Advanced Security](./addendum-004-github-advanced-security.md)!
-
----
-
-Next:
-
-- **[Deployment](/docs/005-deployment.md)**

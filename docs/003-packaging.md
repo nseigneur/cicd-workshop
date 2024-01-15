@@ -78,7 +78,7 @@ You will find many actions related to Docker. For this lab, you will use the fol
         - name: Use Node.js 16.x
           uses: actions/setup-node@v3
           with:
-            node-version: 16.x
+            node-version: 20.x
             cache: npm
         - run: npm ci
         - run: npm run build --if-present
