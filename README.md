@@ -10,7 +10,6 @@
   - [Running the Application](#running-the-application)
     - [Other useful commands 🛠](#other-useful-commands-)
   - [CI/CD WorkShop](#cicd-workshop-1)
-  - [Workshop Goals 🎯](#workshop-goals-)
   - [References 📚](#references-)
 
 ## Introduction 📝
@@ -86,18 +85,6 @@ Now that we have a working application, we can start building our CI/CD pipeline
   - **[Code Quality & Commit management](./docs/code_quality.md)**
   - **[QA & Test Coverage](./docs/qa_tests.md)**
   - **[Security](./docs/security.md)**
-
-
- once completed, you can choose your [workshop goal](#workshop-goals-) below.
-
-## Workshop Goals 🎯
-
-These are the self-serve documents you can follow to complete this workshop.
-
-1. **[Code Quality & Commit management](./docs/code_quality.md)**
-2. **[QA & Test Coverage](./docs/qa_tests.md)**
-3. **[Security](./docs/security.md)**
-
 
 ## References 📚
 - [Reference Workshop](https://github.com/actions-workshop/actions-workshopp)
