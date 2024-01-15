@@ -66,8 +66,6 @@ npm run dev
 
 You can experiment with the below command locally before moving to the Continous Integration and Continous Delivery part of the workshop.
 
-```sh
-
 ### Other useful commands 🛠
 
 | Description                                               | Command         |
@@ -80,7 +78,8 @@ You can experiment with the below command locally before moving to the Continous
 
 Now that we have a working application, we can start building our CI/CD pipeline. 
 
-- We will start by creating a very basic pipeline that will build and test our application by following the instructions founr [here](./docs/ci.md)
+- We will start by creating a very basic pipeline that will build and test our application by following the instructions found [here](./docs/ci.md).
+- Now that we are building our application, it is time to deliver. We are will be packaging the application in a Docker Container to easily distribute it by [following these instructions](./docs/cd.md).
 - Once we have a working pipeline, we can choose one of the following goals to complete the workshop:
   - **[Code Quality & Commit management](./docs/code_quality.md)**
   - **[QA & Test Coverage](./docs/qa_tests.md)**

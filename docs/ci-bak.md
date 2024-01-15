@@ -1,6 +1,6 @@
-## 1 - Implement Continuous Integration (CI)
+# Implement Continuous Integration (CI)
 
-### 1.1 - Use a starter workflow
+## Use a starter workflow
 
 To build a workflow that employs Actions for your Continuous Integration process, start by adding a **starter workflow** to your repository:
 
@@ -8,9 +8,7 @@ To build a workflow that employs Actions for your Continuous Integration process
 2. Select **New workflow**.
 3. Search for `Node.js`.
 4. Click **Configure** under the `Node.js` starter workflow.
-5. We will remove the matrix build and use a more modern version of Node. 
-
-To finish setting up your initial CI workflow, commit the `node.js.yml` file to the `main` branch.
+5. We will remove the [matrix build strategy](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs) as we only want to build for one version of node with a more modern version `20.x`.
 
 <details>
 <summary>Your `.github/workflows/node.js.yml` should contain the following:</summary>
@@ -33,16 +31,17 @@ jobs:
       - name: Use Node.js 20.x
         uses: actions/setup-node@v3
         with:
-            node-version: 20.x
-            cache: npm
+          node-version: 20.x
+          cache: npm
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
 ```
-
 </details>
 
-### 2.2 - Understanding references to actions
+To finish setting up your initial CI workflow, commit the `node.js.yml` file to the `main` branch.
+
+## Understanding references to actions
 
 As you can see, we're now employing a second action in our workflow, `actions/setup-node`, which is used to install a specific Node.js version on the runner.
 
@@ -54,9 +53,9 @@ Let's dissect the reference to that action to understand its structure:
 
 This reference structure makes it straightforward to navigate to the source code of any action by merely appending the `owner` and `name` to the `github.com` URL, like so: `https://github.com/{owner}/{name}`. For the above example, this would be <https://github.com/actions/setup-node>.
 
-### 2.3 - Understanding matrix builds
+## Understanding matrix builds
 
-For more details: [matrix build strategy](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs) with two Node.js versions: 16 and 18. A matrix build enables you to execute a job in parallel using various input parameters. In our case, we're running the same job twice, but with distinct Node.js versions.
+[matrix build strategy](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs) with two Node.js versions: 16 and 18. A matrix build enables you to execute a job in parallel using various input parameters. In our case, we're running the same job twice, but with distinct Node.js versions.
 
 ### Checking workflow runs
 

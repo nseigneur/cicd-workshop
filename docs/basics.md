@@ -1,4 +1,4 @@
-# Part 2 - Basics of CI with Actions
+# Test application basics
 
 ## 1 - Inspect the repository
 
