@@ -1,59 +1,94 @@
 ## 1 - Implement Continuous Integration (CI)
 
-### 1.1 - Set the AWS Secret Keys
-
-1. TODO: Add a link to the AWS Secret Keys
-
-### 1.2 - Use a starter workflow
+### 1.1 - Use a starter workflow
 
 To build a workflow that employs Actions for your Continuous Integration process, start by adding a **starter workflow** to your repository:
 
 1. From your repository's main view, find and navigate to the **Actions** tab.
 2. Select **New workflow**.
-3. Search for `Node.js`.
-4. Click **Configure** under the `Node.js` starter workflow.
-5. In the `node-version` field within the YAML configuration, remove `14.x` (since our app isn't compatible with this version).
+3. Search for `push`.
+4. Click **Configure** under the `push` starter workflow.
 
-To finish setting up your initial CI workflow, commit the `node.js.yml` file to the `main` branch.
+To finish setting up your initial CI workflow, commit the `push.yml` file to the `main` branch.
 
 <details>
-<summary>Your `.github/workflows/node.js.yml` should contain the following:</summary>
+<summary>Your `.github/workflows/push.yml` should contain the following:</summary>
 
 ```yml
-name: Node.js CI
+name: Build and Push
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
+    name: Build and Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+        cache: npm
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    - name: Report Coverage
+      uses: davelosert/vitest-coverage-report-action@v2
+      if: always()
 
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+  package-and-publish:
+    needs:
+      - build
+
+    name: 🐳 Package & Publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Sign in to GitHub Container Registry
+        uses: docker/login-action@v2
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+      - name: Generate Docker Metadatadoc
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=ref,event=tag
+            type=ref,event=pr
+            type=sha,event=branch,prefix=,suffix=,format=short
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          platforms: linux/amd64, linux/arm64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 ```
 
 </details>
 
 ### 1.3 - Understanding references to actions
 
-As you can see, we're now employing a second action in our workflow, `actions/setup-node`, which is used to install a specific Node.js version on the runner.
+As you can see, we're employing a workflow, `actions/setup-node`, which is used to install a specific Node.js version on the runner.
 
 Let's dissect the reference to that action to understand its structure:
 
@@ -63,9 +98,13 @@ Let's dissect the reference to that action to understand its structure:
 
 This reference structure makes it straightforward to navigate to the source code of any action by merely appending the `owner` and `name` to the `github.com` URL, like so: `https://github.com/{owner}/{name}`. For the above example, this would be <https://github.com/actions/setup-node>.
 
-### 1.4 - Understanding matrix builds
+### 1.4 - Understanding Docker push
 
-Observe that our workflow employs a [matrix build strategy](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs) with two Node.js versions: 16 and 18. A matrix build enables you to execute a job in parallel using various input parameters. In our case, we're running the same job twice, but with distinct Node.js versions.
+As in the previous action, we're first using the checkout action, afterward we're using the `docker/setup-buildx-action` to set up the Docker Buildx builder. This is required to build multi-architecture images which we intend to build to support Mac and Windows users. 
+We must login to the Github Docker Registry by leveraging built-in variables and secrets. We prepare the Docker Image MetaData by using the `docker/metadata-action` and finally build and push the Docker Image using the `docker/build-push-action`.
+
+We can see the multi-plaform build configuration `platforms: linux/amd64, linux/arm64`.
+
 
 ### Checking workflow runs
 

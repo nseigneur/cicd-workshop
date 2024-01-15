@@ -7,11 +7,11 @@
   - [Introduction 📝](#introduction-)
   - [Dependencies 📦](#dependencies-)
   - [Getting Started 🚀](#getting-started-)
-  - [Workshop Goals 🎯](#workshop-goals-)
   - [Running the Application](#running-the-application)
     - [Other useful commands 🛠](#other-useful-commands-)
-  - [References 📚](#references-)
   - [CI/CD WorkShop](#cicd-workshop-1)
+  - [Workshop Goals 🎯](#workshop-goals-)
+  - [References 📚](#references-)
 
 ## Introduction 📝
 
@@ -40,22 +40,14 @@ Anything you need for this workshop is contained within this template-repository
 
 1. On the top right, click the green `Use this template` button
     ![Image of the green button saying Use this Repo](./docs/images/setsup_use-this-template.png)
-2. Give your new repository any name you like (for example `<your-name>-gh-actions-workshop`)
-3. Decide for an owner of the new repository (when in doubt, use your private GitHub account)
+2. Give your new repository any name you like (for example `<team_name>-cicd-workshop`)
+3. Decide for an owner of the new repository, use Indigo.
 4. Make it a `Public` repository so you don't use up any of your private action minutes
 5. Click `Create repository from template`
 
 ![Image of Repository Creation Screen with settings as explained above](docs/images/setup_create-repo.png)
 
-Now, you can start working on the [basics of your CI/CD pipeline](./docs/basics.md) once completed, you can choose your [workshop goal](#workshop-goals-) below.
-
-## Workshop Goals 🎯
-
-These are the self-serve documents you can follow to complete this workshop.
-
-1. **[Code Quality & Commit management](./docs/code_quality.md)**
-2. **[QA & Test Coverage](./docs/qa_tests.md)**
-3. **[Security](./docs/security.md)**
+Now, you can start working on the [basics of the application](./docs/basics.md) by running it locally.
 
 ## Running the Application 
 
@@ -73,8 +65,7 @@ After that, you can start it in development mode to have a look at it:
 npm run dev
 ```
 
-While it is usefull to be able to run the application locally, we will be using GitHub Actions to build and deliver the application as a Docker Container. 
-You can experiment with the below command and move to the CI/CD part below.
+You can experiment with the below command locally before moving to the Continous Integration and Continous Delivery part of the workshop.
 
 ```sh
 
@@ -86,18 +77,28 @@ You can experiment with the below command and move to the CI/CD part below.
 | Run Unit Tests with [vitest](https://vitest.dev/)         | `npm run test`  |
 | Lint the Code with [ESLint](https://eslint.org/)          | `npm run lint`  |
 
-## References 📚
-- [Reference Workshop](https://github.com/actions-workshop/actions-workshopp)
-- [ESLint Conventions](https://typescript-eslint.io/rules/naming-convention/)
-
 ## CI/CD WorkShop
 
 Now that we have a working application, we can start building our CI/CD pipeline. 
 
-- We will start by creating a very basic pipeline that will build and test our application by following the instructions founr [here](./docs/basics.md)
+- We will start by creating a very basic pipeline that will build and test our application by following the instructions founr [here](./docs/ci.md)
 - Once we have a working pipeline, we can choose one of the following goals to complete the workshop:
   - **[Code Quality & Commit management](./docs/code_quality.md)**
   - **[QA & Test Coverage](./docs/qa_tests.md)**
   - **[Security](./docs/security.md)**
-  
 
+
+ once completed, you can choose your [workshop goal](#workshop-goals-) below.
+
+## Workshop Goals 🎯
+
+These are the self-serve documents you can follow to complete this workshop.
+
+1. **[Code Quality & Commit management](./docs/code_quality.md)**
+2. **[QA & Test Coverage](./docs/qa_tests.md)**
+3. **[Security](./docs/security.md)**
+
+
+## References 📚
+- [Reference Workshop](https://github.com/actions-workshop/actions-workshopp)
+- [ESLint Conventions](https://typescript-eslint.io/rules/naming-convention/)
