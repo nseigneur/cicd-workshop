@@ -126,43 +126,15 @@ jobs:
           cache-to: type=gha,mode=max
   ```
 
+1. Notice that Build and Push Docker image supports multi-platform `platforms: linux/amd64, linux/arm64` building silmutaneously for `amd64` and `arm64` architectures.
+
 2. Commit the changes to `.github/workflows/node.js.yml`.
 
 3. Upon pushing, the workflow will automatically start and carry out the full CI process.
 
-4. Review the workflow runs and inspect the "Build and Publish Container Image" logs.
+4. Review the workflow runs and inspect the "Build and Publish Container Image" logs. The packaging and publishing task may take several minutes to complete.
 
-## 4 - The GITHUB_TOKEN
-
-As you may have noticed in the `package-and-publish` job of the workflow file mentioned above, we use the [`GITHUB_TOKEN`](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret) to sign in to the GitHub Container Registry and push the generated Docker image.
-
-```yaml
-        - name: Sign in to GitHub Container Registry
-          uses: docker/login-action@v2
-          with:
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
-            registry: ghcr.io
-```
-
-You may recall the `GITHUB_TOKEN` from [Part 02 - Basics of CI with Actions](002-basics-of-ci-with-actions.md) when we discussed the permissions of a workflow.
-
-These permissions aren't automatically applied to a workflow; they are actually passed to the `GITHUB_TOKEN`, which is conveniently stored for you as a default `secret`. Think of the `GITHUB_TOKEN` as a combination of a username and password that grants access to GitHub resources.
-
-Many actions, like `davelosert/vitest-coverage-report-action`, use this token by default, so you typically don't have to specify it.
-
-However, some actions, such as `docker/login-action`, require you to explicitly pass the token through the action's input parameters. In these cases, you can easily access it using the `secrets` context, as demonstrated above with `${{ secrets.GITHUB_TOKEN }}`.
-
-### Limits of the GITHUB_TOKEN
-
-Note that the permissions that can be granted to the `GITHUB_TOKEN` are limited to the scope of the repository where the Actions workflow is running. While this is sufficient for many use cases, there are times when you might want to access or modify something in another repository or even at the organization level.
-
-This scenario is beyond the scope of this workshop, but if you're interested in addressing this, you have two options:
-
-1. Create a [personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with the necessary permissions, and then provide it to the GitHub Actions workflow by [storing it as a repository secret](https://docs.github.com/en/enterprise-cloud@latest/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
-2. Create and install a [GitHub App](https://docs.github.com/en/enterprise-cloud@latest/apps/maintaining-github-apps/installing-github-apps) in your organization, and then use the [workflow application token action](https://github.com/peter-murray/workflow-application-token-action) to generate a short-lived token during the workflow run.
-
-## 5 - Locate your image in the GitHub Container Registry
+## 4 - Locate your image in the GitHub Container Registry
 
 1. Navigate to your project's main page.
 2. Click on the **Packages** link on the right menu.
@@ -175,15 +147,8 @@ This scenario is beyond the scope of this workshop, but if you're interested in 
 In this lab, you have learned how to:
 
 - 👏 Build and publish a container image using GitHub Actions.
-- 👏 Make use of the `GITHUB_TOKEN`.
 - 👏 Navigate to GitHub Packages.
 
 ---
-
-Next:
-
-- **[Security](004-security.md)**
-
-We can see the multi-plaform build configuration `platforms: linux/amd64, linux/arm64`.
 
 
