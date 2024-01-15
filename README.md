@@ -9,21 +9,22 @@
   - [Getting Started 🚀](#getting-started-)
   - [Workshop Goals 🎯](#workshop-goals-)
   - [Running the Application](#running-the-application)
-  - [Other useful commands 🛠](#other-useful-commands-)
+    - [Other useful commands 🛠](#other-useful-commands-)
   - [References 📚](#references-)
+  - [CI/CD WorkShop](#cicd-workshop-1)
 
 ## Introduction 📝
 
-This workshop is designed to help you understand the importance of CI/CD and how to implement it in your project. We will be using [GitHub Actions]() to automate our CI/CD pipeline. 
-We will also be using [AWS S3]() to host our application.Below you will find a list of dependencies and tools you will need to complete this workshop.
+This workshop is designed to help you understand the importance of CI/CD and how to implement it in your project. We will be using [**GitHub Actions**](https://github.com/features/actions) to automate our CI/CD pipeline. 
+In this workshop, we will Test, Build, validate and finally package the application in a Docker container. We will be able to run the packaged application using the docker container. 
 
-We have provided a baseline CI for building and deploying the application, we invite you to choose one primary workshop goal and complete it. If you have time, you can complete the other goals as well.
+We have provided a baseline CI for building and deploying the application, we invite you to choose one primary workshop goal and complete it. If you have time, you can complete the other goals or implement stretch goals as chosen by your team.
 
 Following this workshop, you will create a set of GitHub Action workflows in order to **test, release, secure** and **deploy** the **Rocketdex** 🚀 - an awesome React-Application that lets you view and collect all your favorite rockets!
 
 You will learn how to
 
-- run your **GitHub Actions**
+- run your [**GitHub Actions**](https://github.com/features/actions)
 - use [**the Marketplace**](https://github.com/marketplace)
 - create a complete and secure **CI pipeline** from scratch
 
@@ -32,7 +33,6 @@ You will learn how to
 - [npm](https://www.npmjs.com/)
 - [git](https://git-scm.com/)
 - [GitHub Account](https://github.com)
-- [AWS S3 Credentials](https://vault.indigolabs.ca/)
 
 ## Getting Started 🚀
 
@@ -73,7 +73,12 @@ After that, you can start it in development mode to have a look at it:
 npm run dev
 ```
 
-## Other useful commands 🛠
+While it is usefull to be able to run the application locally, we will be using GitHub Actions to build and deliver the application as a Docker Container. 
+You can experiment with the below command and move to the CI/CD part below.
+
+```sh
+
+### Other useful commands 🛠
 
 | Description                                               | Command         |
 | --------------------------------------------------------- | --------------- |
@@ -84,3 +89,15 @@ npm run dev
 ## References 📚
 - [Reference Workshop](https://github.com/actions-workshop/actions-workshopp)
 - [ESLint Conventions](https://typescript-eslint.io/rules/naming-convention/)
+
+## CI/CD WorkShop
+
+Now that we have a working application, we can start building our CI/CD pipeline. 
+
+- We will start by creating a very basic pipeline that will build and test our application by following the instructions founr [here](./docs/basics.md)
+- Once we have a working pipeline, we can choose one of the following goals to complete the workshop:
+  - **[Code Quality & Commit management](./docs/code_quality.md)**
+  - **[QA & Test Coverage](./docs/qa_tests.md)**
+  - **[Security](./docs/security.md)**
+  
+
