@@ -10,11 +10,6 @@ To build a workflow that employs Actions for your Continuous Integration process
 4. Click **Configure** under the `Node.js` starter workflow.
 5. We will remove the matrix build and use a more modern version of Node. 
 
-To finish setting up your initial CI workflow, commit the `node.js.yml` file to the `main` branch.
-
-<details>
-<summary>Your `.github/workflows/node.js.yml` should contain the following:</summary>
-
 ```yml
 name: Node.js CI
 
@@ -39,8 +34,6 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
 ```
-
-</details>
 
 ### 2.2 - Understanding references to actions
 
