@@ -4,7 +4,7 @@ In the previous lab, you used GitHub Actions to create a continuous integration 
 
 In this lab, you will extend the workflow you created to package the application as a container image and publish it to the GitHub Container Registry.
 
-Optionally, you can then deploy the application to an environment of your choice, for example, Azure Kubernetes Service (AKS). As the deployment is highly individual to your specific requirements, we provide only guidance and do not offer concrete examples.
+We keep things simple, by pushing a Docker Container to GitHub Registry - we could deploy "anywhere" from there.
 
 ## 1 - Using the visualization graph
 
@@ -81,9 +81,6 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - name: Report Coverage
-      uses: davelosert/vitest-coverage-report-action@v2
-      if: always()
 
   package-and-publish:
     needs:
@@ -127,7 +124,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-    ```
+  ```
 
 2. Commit the changes to `.github/workflows/node.js.yml`.
 
