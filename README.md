@@ -28,6 +28,7 @@ You will learn how to
 - create a complete and secure **CI pipeline** from scratch
 
 ## Dependencies 📦
+- [Docker](https://www.docker.com/)
 - [Node.js](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
 - [git](https://git-scm.com/)
@@ -46,13 +47,20 @@ Anything you need for this workshop is contained within this template-repository
 
 ![Image of Repository Creation Screen with settings as explained above](docs/images/setup_create-repo.png)
 
-Now, you can start working on the [basics of the application](./docs/basics.md) by running it locally.
-
 ## Running the Application 
 
 The **Rocketdex** application is a [React](https://reactjs.org/)-Application build with [vite](https://vitejs.dev/) and tested with [vitest](https://vitest.dev/).
 
-You can simply clone it and install all dependencies using:
+Feel free to explore the files if you're curious about the app's operation (though it's not strictly necessary for understanding the remainder of the workshop).
+
+- [`src/main.tsx`](../src/main.ts) : This is the main entry point of the application.
+- [`src/pages/Home.tsx`](../src/pages/Home.tsx) : This route contains most of what you will see upon launching the application.
+- [`src/pages/Home.test.ts`](../src/pages/Home.test.tsx) : Here, you will find [`vitest`](https://vitest.dev/) tests that we will run with GitHub Actions.
+- [`Dockerfile`](../Dockerfile) : This Docker file packages the application into a container that will be used later in this workshop.
+
+To run the application on your local machine, you will need to install Node.js first.
+
+With a command prompt, you can simply clone it `git clone https://<repository_name>` and install all dependencies using:
 
 ```sh
 npm install
@@ -73,6 +81,8 @@ You can experiment with the below command locally before moving to the Continous
 | Build and Bundle the App using [vite](https://vitejs.dev) | `npm run build` |
 | Run Unit Tests with [vitest](https://vitest.dev/)         | `npm run test`  |
 | Lint the Code with [ESLint](https://eslint.org/)          | `npm run lint`  |
+
+Optionally, to test the container, run `docker build . -t local:latest` to build the image and `docker run -p 8080:8080 local:latest` to run it. These commands require a local installation of [Docker](https://www.docker.com/).
 
 ## CI/CD WorkShop
 
