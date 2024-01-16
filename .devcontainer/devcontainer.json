@@ -3,7 +3,6 @@
     "docker-compose.yml"
   ],
   "service": "dev",
-  "workspaceFolder": "/Users/nseigneur/Documents/Temp/cicd-workshop",
   "forwardPorts": [
     4000
   ],
@@ -17,16 +16,22 @@
       "onAutoForward": "notify"
     }
   },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "antfu.vite",
-        "github.github-vscode-theme",
-        "coenraads.bracket-pair-colorizer",
-        "dbaeumer.vscode-eslint",
-        "ms-azuretools.vscode-bicep"
-      ]
-    }
+  "extensions": [
+    "antfu.vite",
+    "github.github-vscode-theme",
+    "coenraads.bracket-pair-colorizer",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-bicep"
+  ],
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "bash",
+        "icon": "terminal-bash"
+      }
+    },
+    "telemetry.enableTelemetry": false,
+    "extensions.ignoreRecommendations": true,
   },
   "postCreateCommand": "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash && npm ci"
 }

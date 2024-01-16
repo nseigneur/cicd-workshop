@@ -11,8 +11,8 @@ Feel free to explore the files if you're curious about the app's operation (thou
 - [`src/pages/Home.test.ts`](../src/pages/Home.test.tsx) : Here, you will find [`vitest`](https://vitest.dev/) tests that we will run with GitHub Actions.
 - [`Dockerfile`](../Dockerfile) : This Docker file packages the application into a container that will be used later in this workshop.
 
-If you want to test the application, you can start a Codespace and run it with the command `npm run dev`
-(you can also run the tests with `npm test`). To run the application on your local machine, you will need to install Node.js first.
+If you want to test the application, you can start a Codespace and run it with the command `npm run dev` 
+(you can also run the tests with `npm test`). To run the application on your local machine, you will need to install Node.js first. For running locally, you need to clone the repository with `git clone https://<repository_name>`
 
 To test the container, run `docker build . -t local:latest` to build the image and `docker run -p 8080:8080 local:latest` to run it. These commands require a local installation of [Docker](https://www.docker.com/).
 
