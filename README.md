@@ -41,7 +41,7 @@ Anything you need for this workshop is contained within this template-repository
 1. On the top right, click the green `Use this template` button
     ![Image of the green button saying Use this Repo](./docs/images/setsup_use-this-template.png)
 2. Give your new repository any name you like (for example `<team_name>-cicd-workshop`)
-3. Decide for an owner of the new repository, use Indigo.
+3. Decide for an owner of the new repository.
 4. Make it a `Public` repository so you don't use up any of your private action minutes
 5. Click `Create repository from template`
 

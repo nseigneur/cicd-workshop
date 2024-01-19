@@ -70,7 +70,7 @@ For now, what you need to know is: as soon as you specify the `permissions` keyw
 
 5. Commit the `node.js.yml` file.
 
-### 1.4 - Remove the matrix build strategy
+### 1.4 - Remove the matrix build strategy (If you have implemented the extend goal)
 
 As this is a frontend project, we don't need a matrix build strategy (which is more suited for backend projects that might be running on several Node.js versions). Removing the matrix build will also make the tests run only once.
 
@@ -90,7 +90,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 20.x
           cache: 'npm'
       - run: npm ci
       - run: npm run build
