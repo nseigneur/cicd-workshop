@@ -95,7 +95,13 @@ Now that we have a working application, we can start building our CI/CD pipeline
 - Once we have a working pipeline, we can choose one of the following goals to complete the workshop:
   - **[QA & Test Coverage](./docs/qa.md)**
   - **[Security](./docs/security.md)**
+- If you have time, or some team members want to explore Git Hooks, see some of the references below
 
 ## References 📚
 - [Reference Workshop](https://github.com/actions-workshop/actions-workshopp)
 - [ESLint Conventions](https://typescript-eslint.io/rules/naming-convention/)
+- [Hashicorp Vault Action](https://github.com/marketplace/actions/hashicorp-vault)
+- [Git Hooks Tutorial](https://www.atlassian.com/git/tutorials/git-hooks)
+- [Git Hooks & Branch Naming Policy](https://itnext.io/using-git-hooks-to-enforce-branch-naming-policy-ffd81fa01e5e)
+- [Git Hooks & Commit Message Policy](https://medium.com/better-programming/stop-adding-bad-commit-messages-to-git-history-7e2f7a5a6c2f)
+- [Git Hook PreCommit framework](https://pre-commit.com/)
