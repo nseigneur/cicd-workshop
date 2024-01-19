@@ -27,6 +27,8 @@ You will learn how to
 - use [**the Marketplace**](https://github.com/marketplace)
 - create a complete and secure **CI pipeline** from scratch
 
+![Image of the green button saying Use this Repo](./docs/images/WorkshopOffsite24.png)
+
 ## Dependencies 📦
 - [Docker](https://www.docker.com/)
 - [Node.js](https://nodejs.org/en/)
